@@ -2,8 +2,8 @@
   <div :style="{height:h+'px'}">
 	<Topnav />
 	<div class="banner">
-		<h1>Simple UI</h1>
-		<h2>一个简洁的UI框架</h2>
+		<h1>Concise UI</h1>
+		<h2>一个简洁的基于vue 的 UI框架</h2>
 		<p class="actions">
 			<a href="#">GitHub</a>
 			<router-link to="/doc">开始</router-link>

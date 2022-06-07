@@ -4,12 +4,12 @@
 	<div class="content">
 		<aside v-if="menuVisible">
 			<h2>组件列表</h2>
-			<ol>
+			<ul>
 				<li><router-link to="/doc/switch">Switch组件</router-link></li>
 				<li><router-link to="/doc/button">Button组件</router-link></li>
 				<li><router-link to="/doc/dialog">Dialog组件</router-link></li>
 				<li><router-link to="/doc/tabs">Tabs组件</router-link></li>
-			</ol>
+			</ul>
 		</aside>
 		<main>
 			<router-view />
@@ -23,7 +23,7 @@ import { inject, Ref } from 'vue';
 import Topnav from '../components/Topnav.vue'
 
 export default {
-	components: {Topnav},
+	components: { Topnav },
 	setup() {
     	const menuVisible = inject<Ref<boolean>>('menuVisible');
 		const h = document.documentElement.clientHeight;
@@ -70,7 +70,7 @@ aside {
 	>h2 {
 		margin-bottom: 4px;
 	}
-	>ol {
+	>ul {
 		>li {
 			padding: 4px 0;
 		}
