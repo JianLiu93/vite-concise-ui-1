@@ -1,19 +1,19 @@
 <template>
-	<label class="concise-label" v-if="type==='normal'">
+	<label class="concise-label" v-if="type==='normal'" :style="width">
 		<span class="name">{{fieldName}}</span>
 		<input type="text"
 		v-model="text" :class="{disabled: disabled}"
 		:placeholder="placeholder" :disabled="disabled"
 		@blur="submit">
 	</label>
-	<label class="concise-label" v-if="type==='button'">
+	<label class="concise-label" v-if="type==='button'" :style="width">
 		<span class="name">{{fieldName}}</span>
 		<input type="text"
 		v-model="text" :class="{disabled: disabled}"
 		:placeholder="placeholder" :disabled="disabled">
 		<Button level="main" @click="submit">确定</Button>
 	</label>
-	<label class="concise-label" v-if="type==='password'">
+	<label class="concise-label" v-if="type==='password'" :style="width">
 		<span class="name">{{fieldName}}</span>
 		<input :type="showPW ? 'text':'password'"
 		v-model="text" :class="{disabled: disabled}"
@@ -55,17 +55,22 @@ export default {
 			type: Boolean,
 			default: false,
 		},
+		width: {
+			type: String,
+			default: ''
+		}
 	},
 	setup(props, context) {
 		const text = ref('');
 		const showPW = ref(false);
+		const width = 'width:' + props.width;
 		const submit = () => {
 			context.emit('update:value', text.value);
 		}
 		const togglePW = () => {
 			showPW.value = !showPW.value;
 		}
-		return { text, showPW, submit, togglePW }
+		return { text, showPW, submit, togglePW, width }
 	}
 }
 </script>

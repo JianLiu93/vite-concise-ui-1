@@ -1,16 +1,5 @@
 <template>
-	<nav class="swtich">
-		<p>Switch的文档</p>
-		<p>Switch的文档</p>
-		<p>Switch的文档</p>
-		<p>Switch的文档</p>
-		<p>Switch的文档</p>
-		<p>Switch的文档</p>
-		<p>Switch的文档</p>
-		<p>Switch的文档</p>
-		<p>Switch的文档</p>
-		<p>Switch的文档</p>
-		<p>Switch的文档</p>
+	<nav class="switch">
 		<p>Switch的文档</p>
 	</nav>
 	<Switch v-model:value="checked"/>

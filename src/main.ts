@@ -3,7 +3,7 @@ import App from './App.vue'
 import './index.scss'
 import { router } from './router'
 import 'virtual:svg-icons-register'
-import Icon from './components/Icon.vue'
+import Icon from './lib/Icon.vue'
 
 const app = createApp(App)
 app.use(router)
