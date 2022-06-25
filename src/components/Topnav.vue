@@ -5,12 +5,12 @@
 			<li>菜单1</li>
 			<li>菜单2</li>
 		</ul>
-		<span class="toggleAside" @click="toggleMenu"></span>
+		<span class="toggleAside" @click="toggleMenu">tog</span>
 	</nav>
 </template>
 
 <script lang="ts">
-import {inject, Ref} from 'vue';
+import { inject, Ref } from 'vue';
 export default {
 	setup() {
 		const menuVisible = inject<Ref<boolean>>('menuVisible') || {value: true};
@@ -66,6 +66,7 @@ export default {
     }
     > .toggleAside {
       display: inline-block;
+      cursor: pointer;
     }
   }
 }

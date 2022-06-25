@@ -9,6 +9,7 @@
 				<li><router-link to="/doc/button">Button组件</router-link></li>
 				<li><router-link to="/doc/dialog">Dialog组件</router-link></li>
 				<li><router-link to="/doc/tabs">Tabs组件</router-link></li>
+				<li><router-link to="/doc/input">Input组件</router-link></li>
 			</ul>
 		</aside>
 		<main>
@@ -20,7 +21,7 @@
 
 <script lang="ts">
 import { inject, Ref } from 'vue';
-import Topnav from '../components/Topnav.vue'
+import Topnav from '@/components/Topnav.vue'
 
 export default {
 	components: { Topnav },
@@ -39,7 +40,7 @@ export default {
 	.nav {
 		flex-shrink: 0;
 	}
-	.content {
+	> .content {
 		flex-grow: 1;
 		display: flex;
 		padding-top: 60px;
@@ -54,7 +55,6 @@ export default {
 		>main {
 			flex-grow: 1;
 			padding: 16px;
-			background: lightgreen;
 		}
 	}
 }
@@ -66,6 +66,7 @@ aside {
 	left: 0;
 	top: 0;
 	padding-top: 70px;
+
 	height: 100%;
 	>h2 {
 		margin-bottom: 4px;

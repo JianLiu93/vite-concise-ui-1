@@ -1,5 +1,5 @@
 <template>
-	<button class="simple-switch" :class="{checked: value}" @click="toggle">
+	<button class="concise-switch" :class="{checked: value}" @click="toggle">
 		<span></span>
 	</button>
 </template>
@@ -20,10 +20,10 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $h: 22px;
 $h2: $h - 4px;
-.simple-switch {
+.concise-switch {
 	height: $h;
 	width: $h*2;
 	border: none;
@@ -33,30 +33,23 @@ $h2: $h - 4px;
 	cursor: pointer;
 
 	&:focus { outline: none; }
-	&:active {
-      > span { width: $h2 + 4px; }
+
+	span {
+		position: absolute;
+		top: 2px;
+		left: 3px;
+		height: $h2;
+		width: $h2;
+		background: #fff;
+		border-radius: $h2/2;
+		transition: all .25s;
 	}
 }
-span {
-	position: absolute;
-	top: 2px;
-	left: 2px;
-	height: $h2;
-	width: $h2;
-	background: #fff;
-	border-radius: $h2/2;
-	transition: all .25s;
-}
-.simple-switch.checked {
+.concise-switch.checked {
 	background: #41b883;
 	>span {
-	left: calc(100% - #{$h2} - 2px);
+	left: calc(100% - #{$h2} - 3px);
 	}
-	&:active {
-      > span {
-		  width: $h2 + 4px;
-		  margin-left: -4px; }
-  }
 }
 
 </style>

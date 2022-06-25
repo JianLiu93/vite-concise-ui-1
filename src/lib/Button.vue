@@ -1,6 +1,6 @@
 <template>
-	<button class="simple-button" :class="classes" :disabled="disabled">
-		<span v-if="loading" class="simple-loadingIndicator"></span>
+	<button class="concise-button" :class="classes" :disabled="disabled">
+		<span v-if="loading" class="concise-loadingIndicator"></span>
 		<slot></slot>
 	</button>
 </template>
@@ -35,9 +35,9 @@ export default {
 		const { theme, size, level } = props;
 		const classes = computed(() => {
 			return {
-				[`simple-theme-${theme}`]: theme,
-				[`simple-size-${size}`]: size,
-				[`simple-level-${level}`]: level,
+				[`concise-theme-${theme}`]: theme,
+				[`concise-size-${size}`]: size,
+				[`concise-level-${level}`]: level,
 			}
 		});
 		return { classes };
@@ -54,7 +54,7 @@ $blue: #40a9ff;
 $radius: 4px;
 $red: red;
 $grey: grey;
-.simple-button {
+.concise-button {
   box-sizing: border-box;
   height: $h;
   padding: 0 12px;
@@ -67,7 +67,7 @@ $grey: grey;
   color: $color;
   border: 1px solid $border-color;
   border-radius: $radius;
-  box-shadow: 0 1px 0 fade-out(black, 0.9);
+  dow: 0 1px 0 fade-out(black, 0.9);
   transition: background 250ms;
   & + & {
     margin-left: 8px;
@@ -83,7 +83,7 @@ $grey: grey;
   &::-moz-focus-inner {
     border: 0;
   }
-  &.simple-theme-link {
+  &.concise-theme-link {
     border-color: transparent;
     box-shadow: none;
     color: $blue;
@@ -92,7 +92,7 @@ $grey: grey;
       color: lighten($blue, 10%);
     }
   }
-  &.simple-theme-text {
+  &.concise-theme-text {
     border-color: transparent;
     box-shadow: none;
     color: inherit;
@@ -101,18 +101,18 @@ $grey: grey;
       background: darken(white, 5%);
     }
   }
-  &.simple-size-big {
+  &.concise-size-big {
     font-size: 24px;
     height: 48px;
     padding: 0 16px;
   }
-  &.simple-size-small {
+  &.concise-size-small {
     font-size: 12px;
     height: 20px;
     padding: 0 4px;
   }
-  &.simple-theme-button {
-    &.simple-level-main {
+  &.concise-theme-button {
+    &.concise-level-main {
       background: $blue;
       color: white;
       border-color: $blue;
@@ -122,7 +122,7 @@ $grey: grey;
         border-color: darken($blue, 10%);
       }
     }
-    &.simple-level-danger {
+    &.concise-level-danger {
       background: $red;
       border-color: $red;
       color: white;
@@ -133,8 +133,8 @@ $grey: grey;
       }
     }
   }
-  &.simple-theme-link {
-    &.simple-level-danger {
+  &.concise-theme-link {
+    &.concise-level-danger {
       color: $red;
       &:hover,
       &:focus {
@@ -142,15 +142,15 @@ $grey: grey;
       }
     }
   }
-  &.simple-theme-text {
-    &.simple-level-main {
+  &.concise-theme-text {
+    &.concise-level-main {
       color: $blue;
       &:hover,
       &:focus {
         color: darken($blue, 10%);
       }
     }
-    &.simple-level-danger {
+    &.concise-level-danger {
       color: $red;
       &:hover,
       &:focus {
@@ -158,7 +158,7 @@ $grey: grey;
       }
     }
   }
-  &.simple-theme-button {
+  &.concise-theme-button {
     &[disabled] {
       cursor: not-allowed;
       color: $grey;
@@ -167,13 +167,13 @@ $grey: grey;
       }
     }
   }
-  &.simple-theme-link, &.simple-theme-text {
+  &.concise-theme-link, &.concise-theme-text {
     &[disabled] {
       cursor: not-allowed;
       color: $grey;
     }
   }
-  > .simple-loadingIndicator{
+  > .concise-loadingIndicator{
     width: 14px;
     height: 14px;
     display: inline-block;
@@ -182,10 +182,10 @@ $grey: grey;
     border-color: $blue $blue $blue transparent;
     border-style: solid;
     border-width: 2px;
-    animation: simple-spin 1s infinite linear;
+    animation: concise-spin 1s infinite linear;
   }
 }
-@keyframes simple-spin {
+@keyframes concise-spin {
   0%{transform: rotate(0deg)} 
   100%{transform: rotate(360deg)} 
 }

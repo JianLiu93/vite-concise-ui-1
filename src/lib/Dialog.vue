@@ -1,12 +1,12 @@
 <template>
 <div v-if="visible">
   <Teleport to="body">
-    <div class="simple-dialog-mask" @click="onClickMask"></div>	
-    <div class="simple-dialog-wrapper">
-      <div class="simple-dialog">
+    <div class="concise-dialog-mask" @click="onClickMask"></div>	
+    <div class="concise-dialog-wrapper">
+      <div class="concise-dialog">
     	<header>
     		<slot name="title"></slot>
-    		<span class="simple-dialog-close" @click="close"></span>
+    		<span class="concise-dialog-close" @click="close"></span>
     	</header>
     	<main>
     		<slot name="content"></slot>
@@ -57,7 +57,7 @@ export default {
 			if(props.cancel) props.cancel();
 			close();
 		}
-		return { close, onClickMask, onOK, onCancel };
+		return { close, onClickMask, onOK, onCancel }
 	},
 }
 </script>
@@ -66,7 +66,7 @@ export default {
 $radius: 4px;
 $border-color: #d9d9d9;
 
-.simple-dialog {
+.concise-dialog {
   background: #fff;
   border-radius: $radius;
   box-shadow: 0 0 3px fade_out(black, 0.5);
