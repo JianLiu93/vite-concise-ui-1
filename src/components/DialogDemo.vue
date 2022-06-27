@@ -11,7 +11,7 @@
 				<div>欢迎使用concise-UI!</div>
 			</template>
 		</Dialog>
-		<h2 class="title">Dialog 示例2</h2>
+		<h2 class="title">Dialog TS代码执行示例</h2>
 		<Button @click="showDialog">show</Button>
 	</div>
 </template>

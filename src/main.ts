@@ -9,3 +9,7 @@ const app = createApp(App)
 app.use(router)
 app.component('Icon', Icon)
 app.mount('#app')
+
+const container = document.createElement('div');
+container.setAttribute('class', 'concise-message-container');
+document.body.appendChild(container);
