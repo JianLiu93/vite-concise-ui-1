@@ -3,6 +3,12 @@
 	<Topnav class="nav" />
 	<div class="content">
 		<aside v-if="menuVisible">
+			<h2>介绍文档</h2>
+			<ul>
+				<li><router-link to="/doc/intro">介绍</router-link></li>
+				<li><router-link to="/doc/install">安装</router-link></li>
+				<li><router-link to="/doc/started">开始使用</router-link></li>
+			</ul>
 			<h2>组件列表</h2>
 			<ul>
 				<li><router-link to="/doc/switch">Switch组件</router-link></li>
@@ -46,7 +52,7 @@ export default {
 		flex-grow: 1;
 		display: flex;
 		padding-top: 60px;
-		padding-left: 160px;
+		padding-left: 180px;
 		@media (max-width: 500px) {
 			padding-left: 0;
 		}
@@ -57,25 +63,40 @@ export default {
 		>main {
 			flex-grow: 1;
 			padding: 16px;
+			background: #fff;
 		}
 	}
 }
 aside {
-	background: lightblue;
-	width: 150px;
-	padding: 16px;
+	text-align: left;
+	background: #fff;
+	width: 180px;
+	padding: 16px 0;
 	position: fixed;
 	left: 0;
 	top: 0;
 	padding-top: 70px;
+  height: 100%;
+  z-index: 10;
+	border-right: 1px solid #ccc;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
 
-	height: 100%;
 	>h2 {
-		margin-bottom: 4px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		padding: 0 20px;
 	}
 	>ul {
 		>li {
-			padding: 4px 0;
+			>a {
+			display: block;
+			padding: 4px 16px 4px 40px;
+			color: #555;
+			}
+			a.router-link-active {
+			background: #e0fafa;
+			border-right: 3px solid #50367f;
+			}
 		}
 	}
 }

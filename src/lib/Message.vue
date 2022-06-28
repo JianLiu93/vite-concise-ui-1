@@ -4,7 +4,7 @@
     <div class="concise-message" :style="style[type]" :class="{center: center}" v-if='visible'>
       <Icon :name="style[type].icon" size="20px" :color="style[type].color" />
       <span class="text">{{text}}</span>
-      <Icon v-if="closeable" class="close" @click="visible=false" name="close" size="20px" color="#888" />
+      <Icon v-if="closeable" class="close" @click="close" name="close" size="20px" color="#888" />
     </div>
   </transition>
 </div>
@@ -74,16 +74,27 @@ export default {
       if(time === 0) return;
       if(time <= 0) {time = 3000;}
 			let timer = setTimeout(() => {
-				visible.value = false;
 				clearTimeout(timer);
+        close();
 			}, time);
     });
-    return { style, visible }
+    const close = () => {
+			visible.value = false;
+			context.emit('update:visible', false);
+    };
+    return { style, visible, close }
   }
 }
 </script>
 
 <style lang="scss">
+%clearFix {
+  &::after {
+    content: '';
+    clear: both;
+    display: block;
+  }
+}
 .drop {
   &-enter {
     &-from {
@@ -120,6 +131,7 @@ export default {
   margin-left: -180px;
 }
 .concise-message {
+  @extend %clearFix;
   // width: 360px;
   // max-height: 50px;
   // position: fixed;
@@ -158,7 +170,7 @@ export default {
   }
   .close {
     float: right;
-    margin: 10px 0;
+    margin: 12px 0;
     cursor: pointer;
   }
 }
