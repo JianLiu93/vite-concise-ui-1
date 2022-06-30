@@ -1,55 +1,63 @@
 <template>
 	<div class="dialog">
+		<h1>Dialog 组件文档</h1>
 		<h2 class="title">Dialog 对话框示例</h2>
-		<Button @click="toggle">toggle 切换</Button>
-		<Dialog v-model:visible="isShow" :closeOnClickMask="false" :OK="fn1" :cancel="fn2">
-			<template v-slot:title>
-				<strong>Dialog 对话框</strong>
-			</template>
-			<template v-slot:content>
-				<strong>您好</strong>
-				<div>欢迎使用concise-UI!</div>
-			</template>
-		</Dialog>
+		<Demo :component="DialogDemo1" :code="DialogDemo1Code" />
+		<h2 class="title">点击框外无法关闭</h2>
+		<div class="text">如果想要点击框外无法关闭，需要设置 closeOnClickMask 属性为 false。</div>
+		<Demo :component="DialogDemo2" :code="DialogDemo2Code" />
 		<h2 class="title">Dialog TS代码执行示例</h2>
-		<Button @click="showDialog">show</Button>
+		<div class="text">注意，需要引入 h 函数 和 openDialog 函数，并按格式设置好各项参数。</div>
+		<Demo :component="DialogDemo3" :code="DialogDemo3Code" />
 	</div>
 </template>
 
 <script lang="ts">
-import { ref, h } from 'vue';
-import Button from '../lib/Button.vue';
-import Dialog from '../lib/Dialog.vue';
-import { openDialog } from '../lib/openDialog';
+import Demo from '../components/Demo.vue';
+import DialogDemo1 from '../components/dialog/Dialog1.demo1.vue';
+import DialogDemo2 from '../components/dialog/Dialog1.demo2.vue';
+import DialogDemo3 from '../components/dialog/Dialog1.demo3.vue';
+import DialogDemo1Code from '../components/dialog/Dialog1.demo1';
+import DialogDemo2Code from '../components/dialog/Dialog1.demo2';
+import DialogDemo3Code from '../components/dialog/Dialog1.demo3';
 
 export default {
-	components: { Button, Dialog },
+	components: { Demo },
 	setup() {
-		const isShow = ref(false);
-		const toggle = () => {
-			isShow.value = !isShow.value;
+		// const showDialog = () => {
+		// 	openDialog({
+		// 		title: h('strong', {}, '开发者'),
+		// 		content: '相信自己，你很帅',
+		// 		OK() {
+		// 			console.log('OK');
+		// 		},
+		// 		cancel() {
+		// 			console.log('cancel');
+		// 		}
+		// 	});
+		// }
+		return {
+			DialogDemo1, DialogDemo1Code,
+			DialogDemo2, DialogDemo2Code,
+			DialogDemo3, DialogDemo3Code,
 		}
-		const fn1 = () => {
-			return true;
-		}
-		const fn2 = () => {};
-		const showDialog = () => {
-			openDialog({
-				title: h('strong', {}, '开发者'),
-				content: '相信自己，你很帅',
-				OK() {
-					console.log('OK');
-				},
-				cancel() {
-					console.log('cancel');
-				}
-			});
-		}
-		return { isShow, toggle, fn1, fn2, showDialog };
 	},
 }
 </script>
 
 <style lang="scss" scoped>
-
+.dialog {
+  >h1 {
+    padding: 8px 16px;
+		border-bottom: 1px solid #d8dee4;
+		margin-bottom: 16px;
+  }
+  >h2 {
+    padding: 8px 16px;
+  }
+	>.text {
+    padding: 8px 20px;
+		color: #333;
+	}
+}
 </style>

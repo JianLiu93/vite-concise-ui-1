@@ -50,10 +50,11 @@ export default {
 $h: 32px;
 $border-color: #d9d9d9;
 $color: #333;
-$blue: #40a9ff;
 $radius: 4px;
-$red: red;
-$grey: grey;
+$blue: #40a9ff;
+$red: #f56c6c;
+$green: #41b883;
+$grey: #d9d9d9;
 .concise-button {
   box-sizing: border-box;
   height: $h;
@@ -86,19 +87,21 @@ $grey: grey;
   &.concise-theme-link {
     border-color: transparent;
     box-shadow: none;
-    color: $blue;
+    color: #333;
+    text-decoration: underline;
     &:hover,
     &:focus {
-      color: lighten($blue, 10%);
+      color: lighten(#333, 30%);
     }
   }
   &.concise-theme-text {
     border-color: transparent;
     box-shadow: none;
-    color: inherit;
+    color: #333;
     &:hover,
     &:focus {
-      background: darken(white, 5%);
+      background: #f5f5f5;
+      color: lighten(#333, 10%);
     }
   }
   &.concise-size-big {
@@ -118,8 +121,8 @@ $grey: grey;
       border-color: $blue;
       &:hover,
       &:focus {
-        background: darken($blue, 10%);
-        border-color: darken($blue, 10%);
+        background: lighten($blue, 10%);
+        border-color: lighten($blue, 10%);
       }
     }
     &.concise-level-danger {
@@ -132,13 +135,37 @@ $grey: grey;
         border-color: darken($red, 10%);
       }
     }
+    &.concise-level-success {
+      background: $green;
+      border-color: $green;
+      color: white;
+      &:hover,
+      &:focus {
+        background: lighten($green, 10%);
+        border-color: lighten($green, 10%);
+      }
+    }
   }
   &.concise-theme-link {
+    &.concise-level-main {
+      color: $blue;
+      &:hover,
+      &:focus {
+        color: lighten($blue, 10%);
+      }
+    }
     &.concise-level-danger {
       color: $red;
       &:hover,
       &:focus {
         color: darken($red, 10%);
+      }
+    }
+    &.concise-level-success {
+      color: $green;
+      &:hover,
+      &:focus {
+        color: lighten($green, 10%);
       }
     }
   }
@@ -157,12 +184,21 @@ $grey: grey;
         color: darken($red, 10%);
       }
     }
+    &.concise-level-success {
+      color: $green;
+      &:hover,
+      &:focus {
+        color: darken($green, 10%);
+      }
+    }
   }
   &.concise-theme-button {
     &[disabled] {
       cursor: not-allowed;
       color: $grey;
+      background: #fff;
       &:hover {
+        background: #fff;
         border-color: $grey;
       }
     }
@@ -171,6 +207,9 @@ $grey: grey;
     &[disabled] {
       cursor: not-allowed;
       color: $grey;
+      &:hover {
+        color: $grey;
+      }
     }
   }
   > .concise-loadingIndicator{

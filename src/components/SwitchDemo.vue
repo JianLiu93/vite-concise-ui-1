@@ -2,54 +2,45 @@
 	<div class="switch">
 		<h1>Switch 组件文档</h1>
 		<h2>Switch 组件基本示例</h2>
-		<div><Switch v-model:value="checked"/></div>
+		<Demo :component="SwitchDemo1" :code="SwitchDemo1Code" />
+		<h2>Switch 不同尺寸组件</h2>
+		<Demo :component="SwitchDemo2" :code="SwitchDemo2Code" />
+		<h2>disable 不可使用状态</h2>
+		<Demo :component="SwitchDemo3" :code="SwitchDemo3Code" />
 	</div>
 </template>
 
 <script lang="ts">
-import { ref } from 'vue';
-import Switch from '../lib/Switch.vue';
+import Demo from '../components/Demo.vue';
+import SwitchDemo1 from '../components/switch/Switch.demo1.vue';
+import SwitchDemo2 from '../components/switch/Switch.demo2.vue';
+import SwitchDemo3 from '../components/switch/Switch.demo3.vue';
+import SwitchDemo1Code from '../components/switch/Switch.demo1';
+import SwitchDemo2Code from '../components/switch/Switch.demo2';
+import SwitchDemo3Code from '../components/switch/Switch.demo3';
 
 export default {
-	components: { Switch },
+	components: { Demo },
 	setup() {
-		const checked = ref(false);
-		return { checked };
+		return {
+			SwitchDemo1, SwitchDemo1Code,
+			SwitchDemo2, SwitchDemo2Code,
+			SwitchDemo3, SwitchDemo3Code,
+		}
 	}
 
-}
+}                                                                            
 </script>
 
 <style lang="scss" scoped>
-$border-color: #e0e0e0;
-.demo {
-  border: 1px solid $border-color;
-  margin: 16px 0 32px;
-
+.switch {
+  >h1 {
+    padding: 8px 16px;
+		border-bottom: 1px solid #d8dee4;
+		margin-bottom: 16px;
+  }
   >h2 {
-    font-size: 20px;
     padding: 8px 16px;
-    border-bottom: 1px solid $border-color;
-  }
-
-  &-component {
-    padding: 16px;
-  }
-
-  &-actions {
-    padding: 8px 16px;
-    border-top: 1px dashed $border-color;
-  }
-
-  &-code {
-    padding: 8px 16px;
-    border-top: 1px dashed $border-color;
-
-    >pre {
-      line-height: 1.1;
-      font-family: Consolas, 'Courier New', Courier, monospace;
-      margin: 0;
-    }
   }
 }
 </style>

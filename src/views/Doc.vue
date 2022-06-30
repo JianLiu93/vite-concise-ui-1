@@ -63,6 +63,7 @@ export default {
 		>main {
 			flex-grow: 1;
 			padding: 16px;
+			padding-bottom: 50px;
 			background: #fff;
 		}
 	}

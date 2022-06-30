@@ -1,5 +1,5 @@
 <template>
-	<button class="concise-switch" :class="{checked: value}" @click="toggle">
+	<button class="concise-switch" :class="{checked: value, [`concise-size-${size}`]: true, disable: disable}" @click="toggle">
 		<span></span>
 	</button>
 </template>
@@ -9,11 +9,24 @@ import { ref } from 'vue';
 
 export default {
 	props: {
-		value: Boolean
+		value: {
+			type: Boolean,
+			default: false
+		},
+		disable: {
+			type: Boolean,
+			default: false
+		},
+		size: {
+			type: String,
+			default: 'normal'
+		}
 	},
 	setup(props, context) {
 		const toggle = () => {
+			if(!props.disable) {
 			context.emit('update:value', !props.value);
+			}
 		}
 		return { toggle };
 	},
@@ -30,9 +43,14 @@ $h2: $h - 4px;
 	background: grey;
 	position: relative;
 	border-radius: $h/2;
+	margin: 10px 20px 10px 0;
 	cursor: pointer;
 
 	&:focus { outline: none; }
+	&.disable {
+		cursor: not-allowed;
+		background: #ccc;
+	}
 
 	span {
 		position: absolute;
@@ -44,12 +62,49 @@ $h2: $h - 4px;
 		border-radius: $h2/2;
 		transition: all .25s;
 	}
-}
-.concise-switch.checked {
-	background: #41b883;
-	>span {
-	left: calc(100% - #{$h2} - 3px);
+	&.checked {
+		background: #41b883;
+		>span {
+		left: calc(100% - #{$h2} - 3px);
+		}
+	}
+	&.concise-size-big {
+		$h: 44px;
+		$h2: $h - 8px;
+		height: $h;
+		width: $h*2;
+		border-radius: $h/2;
+
+		>span {
+			top: 4px;
+			left: 6px;
+			height: $h2;
+			width: $h2;
+			border-radius: $h2/2;
+		}
+		&.checked>span {
+			left: calc(100% - #{$h2} - 6px);
+		}
+	}
+	&.concise-size-small {
+		$h: 14px;
+		$h2: $h - 2px;
+		height: $h;
+		width: $h*2;
+		border-radius: $h/2;
+
+		>span {
+			top: 1px;
+			left: 1px;
+			height: $h2;
+			width: $h2;
+			border-radius: $h2/2;
+		}
+		&.checked>span {
+			left: calc(100% - #{$h2} - 1px);
+		}
 	}
 }
+
 
 </style>

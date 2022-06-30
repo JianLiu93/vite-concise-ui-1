@@ -1,7 +1,7 @@
 <template>
 <div class="concise-tabs">
 	<div class="concise-tabs-nav" ref="container">
-		<div class="concise-tabs-nav-item" v-for="t in titles" :key="t" :class="{selected: t===selected}"
+		<div class="concise-tabs-nav-item" v-for="t in titles" :key="t" :class="{selected: t===selected, disable: disable.indexOf(t)>=0}"
 		:ref="el => {if(t === selected) selectedItem = el}" @click="select(t)">{{t}}</div>
 		<div class="concise-tabs-nav-indicator" ref="indicator"></div>
 	</div>
@@ -18,7 +18,12 @@ import { ref, computed, onMounted, watchEffect } from 'vue';
 export default {
 	props: {
 		selected: {
-			type: String
+			type: String,
+			require: true
+		},
+		disable: {
+			type: Array,
+			default: []
 		}
 	},
 	setup(props, context) {
@@ -27,7 +32,7 @@ export default {
 		const indicator = ref<HTMLDivElement>();
 
 		const defaults = context.slots.default!();
-		console.log(defaults);
+		// console.log(defaults);
 		defaults.map(tag => {
 			if(tag.type !== Tab) {
 				throw new Error('Tabs 的子标签必须是 Tab!');
@@ -38,7 +43,8 @@ export default {
 		});
 		const titles = defaults.map(tag => tag.props.title);
 		const select = (title: string) => {
-			context.emit('update:selected', title)
+			if(props.disable.indexOf(title) >= 0) return;
+			context.emit('update:selected', title);
 		}
 
 		onMounted(() => {
@@ -73,6 +79,7 @@ $border-color: #d9d9d9;
       padding: 8px 0;
       margin: 0 16px;
       cursor: pointer;
+			caret-color: transparent;
 
       &:first-child {
         margin-left: 0;
@@ -81,6 +88,10 @@ $border-color: #d9d9d9;
       &.selected {
         color: $blue;
       }
+			&.disable {
+				color: #999;
+				cursor: not-allowed;
+			}
     }
 
     &-indicator {

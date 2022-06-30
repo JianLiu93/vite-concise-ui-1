@@ -1,77 +1,92 @@
 <template>
-	<div class="swtich">
-		<div class="btn-list"><div class="title">基础的按钮示例</div>
-		<Button theme="button" size="big" @click="onClick">大按钮</Button>
-		<Button theme="button" size="normal" @click="onClick">标准按钮</Button>
-		<Button theme="button" size="small" @click="onClick">小按钮</Button>
+	<div class="button">
+		<h1>Button 组件文档</h1>
+		<div class="btn-list"><h2>基础按钮示例</h2>
+		<div class="text">支持 3 种 size 设置。</div>
+		<Demo :component="ButtonDemo1" :code="ButtonDemo1Code" />
 		</div>
 
-		<div class="btn-list"><div class="title">不同信息按钮示例</div>
-		<Button level="normal" size="normal" @click="onClick">基础按钮</Button>
-		<Button level="main" size="normal" @click="onClick">主要按钮</Button>
-		<Button level="danger" size="normal" @click="onClick">危险按钮</Button>
-		<!-- 成功按钮、信息按钮 -->
+		<div class="btn-list"><h2>包含不同信息的基础按钮示例</h2>
+		<div class="text">支持 4 种 信息提示等级 ( level )：normal，main，success 和 danger。</div>
+		<Demo :component="ButtonDemo3" :code="ButtonDemo3Code" />
 		</div>
 
-		<div class="btn-list"><div class="title">链接形式按钮示例</div>
-		<Button theme="link" size="big" @click="onClick">大链接按钮</Button>
-		<Button theme="link" size="normal" @click="onClick">标准链接按钮</Button>
-		<Button theme="link" size="small" @click="onClick">小链接按钮</Button>
+		<div class="btn-list"><h2>链接按钮示例</h2>
+		<Demo :component="ButtonDemo2" :code="ButtonDemo2Code" />
 		</div>
 
-		<div class="btn-list"><div class="title">文字型按钮示例</div>
-		<Button theme="text" size="big" @click="onClick">大文字按钮</Button>
-		<Button theme="text" size="normal" @click="onClick">标准文字按钮</Button>
-		<Button theme="text" size="small" @click="onClick">小文字按钮</Button>
+		<div class="btn-list"><h2>文字按钮示例</h2>
+		<Demo :component="ButtonDemo4" :code="ButtonDemo4Code" />
 		</div>
 
-		<div class="btn-list"><div class="title">链接信息按钮示例</div>
-		<Button theme="link" level="normal" size="normal" @click="onClick">基础按钮</Button>
-		<Button theme="link" level="main" size="normal" @click="onClick">主要按钮</Button>
-		<Button theme="link" level="danger" size="normal" @click="onClick">危险按钮</Button>
-		<!-- 成功按钮、信息按钮 -->
+		<div class="btn-list"><h2>链接信息等级按钮示例</h2>
+		<Demo :component="ButtonDemo5" :code="ButtonDemo5Code" />
 		</div>
 
-		<div class="btn-list"><div class="title">文字型信息按钮示例</div>
-		<Button theme="text" level="normal" size="normal" @click="onClick">基础按钮</Button>
-		<Button theme="text" level="main" size="normal" @click="onClick">主要按钮</Button>
-		<Button theme="text" level="danger" size="normal" @click="onClick">危险按钮</Button>
-		<!-- 成功按钮、信息按钮 -->
+		<div class="btn-list"><h2>文字型信息等级按钮示例</h2>
+		<Demo :component="ButtonDemo6" :code="ButtonDemo6Code" />
 		</div>
 
-		<div class="btn-list"><div class="title">禁用按钮示例</div>
-		<Button theme="button" size="normal" disabled @click="onClick">基础按钮</Button>
-		<Button theme="link" size="normal" disabled @click="onClick">主要按钮</Button>
-		<Button theme="text" size="normal" disabled @click="onClick">危险按钮</Button>
+		<div class="btn-list"><h2>disable 禁用按钮示例</h2>
+		<Demo :component="ButtonDemo7" :code="ButtonDemo7Code" />
 		</div>
 
-		<div class="btn-list"><div class="title">数据加载中按钮示例</div>
-		<Button theme="button" size="normal" loading @click="onClick">数据加载中</Button>
-		<Button theme="button" size="normal" @click="onClick">加载完毕</Button>
+		<div class="btn-list"><h2>数据加载中按钮示例</h2>
+		<div class="text">设置 loading 属性为 true。</div>
+		<Demo :component="ButtonDemo8" :code="ButtonDemo8Code" />
 		</div>
 	</div>
 </template>
 
 <script lang="ts">
-import Button from '../lib/Button.vue';
+import Demo from '../components/Demo.vue';
+import ButtonDemo1 from '../components/button/Button.demo1.vue';
+import ButtonDemo2 from '../components/button/Button.demo2.vue';
+import ButtonDemo3 from '../components/button/Button.demo3.vue';
+import ButtonDemo4 from '../components/button/Button.demo4.vue';
+import ButtonDemo5 from '../components/button/Button.demo5.vue';
+import ButtonDemo6 from '../components/button/Button.demo6.vue';
+import ButtonDemo7 from '../components/button/Button.demo7.vue';
+import ButtonDemo8 from '../components/button/Button.demo8.vue';
+import ButtonDemo1Code from '../components/button/Button.demo1';
+import ButtonDemo2Code from '../components/button/Button.demo2';
+import ButtonDemo3Code from '../components/button/Button.demo3';
+import ButtonDemo4Code from '../components/button/Button.demo4';
+import ButtonDemo5Code from '../components/button/Button.demo5';
+import ButtonDemo6Code from '../components/button/Button.demo6';
+import ButtonDemo7Code from '../components/button/Button.demo7';
+import ButtonDemo8Code from '../components/button/Button.demo8';
 
 export default {
-	components: { Button },
+	components: { Demo },
 	setup() {
-		const onCLick = () => {
-			console.log('click');
+		return {
+			ButtonDemo1, ButtonDemo1Code,
+			ButtonDemo2, ButtonDemo2Code,
+			ButtonDemo3, ButtonDemo3Code,
+			ButtonDemo4, ButtonDemo4Code,
+			ButtonDemo5, ButtonDemo5Code,
+			ButtonDemo6, ButtonDemo6Code,
+			ButtonDemo7, ButtonDemo7Code,
+			ButtonDemo8, ButtonDemo8Code,
 		}
-		const onFocus = () => {
-			console.log('focus');
-		}
-		const onMove = () => {
-			console.log('move');
-		}
-		return {onCLick, onFocus, onMove}
 	}
 }
-</script >
+</script>
 
 <style lang="scss" scoped>
-
+.button {
+  >h1 {
+    padding: 8px 16px;
+		border-bottom: 1px solid #d8dee4;
+		margin-bottom: 16px;
+  }
+  h2 {
+    padding: 8px 16px;
+  }
+	.text {
+    padding: 8px 20px;
+		color: #333;
+	}
+}
 </style>

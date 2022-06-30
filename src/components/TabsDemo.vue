@@ -1,26 +1,50 @@
 <template>
-	<div>Tabs组件示例</div>
-	<h1>示例1</h1>
-	<Tabs v-model:selected="def_title">
-		<Tab title="标签1">内容1</Tab>
-		<Tab title="我是一个非常长的标签">内容2</Tab>
-	</Tabs>
+<div class="tabs">
+	<h1>Tabs 组件文档</h1>
+	<h2>Tabs 标签页常规示例</h2>
+	<Demo :component="TabsDemo1" :code="TabsDemo1Code" />
+	<h2>标签页禁用 disable 示例</h2>
+	<div class="text">可以通过在 Tabs 组件上指定参数确定默认标签和被禁用的标签。</div>
+	<Demo :component="TabsDemo2" :code="TabsDemo2Code" />
+</div>
+<div class="more">更多组件开发中...敬请期待</div>
 </template>
 <script lang="ts">
-import { ref } from 'vue'
-import Tab from '../lib/Tab.vue';
-import Tabs from '../lib/Tabs.vue';
+import Demo from '../components/Demo.vue';
+import TabsDemo1 from '../components/tabs/Tabs.demo1.vue';
+import TabsDemo2 from '../components/tabs/Tabs.demo2.vue';
+import TabsDemo1Code from '../components/tabs/Tabs.demo1';
+import TabsDemo2Code from '../components/tabs/Tabs.demo2';
 
 export default {
-	components: { Tab, Tabs },
+	components: { Demo },
 	setup() {
-		const def_title = ref('我是一个非常长的标签');
-		return { def_title };
+		return {
+			TabsDemo1, TabsDemo1Code,
+			TabsDemo2, TabsDemo2Code,
+		};
 	},
 }
 </script>
 
 
 <style lang="scss" scoped>
-
+.tabs {
+  >h1 {
+    padding: 8px 16px;
+		border-bottom: 1px solid #d8dee4;
+		margin-bottom: 16px;
+  }
+  >h2 {
+    padding: 8px 16px;
+  }
+	>.text {
+    padding: 8px 20px;
+		color: #333;
+	}
+}
+.more {
+  padding: 8px 16px;
+	font-weight: 700;
+}
 </style>

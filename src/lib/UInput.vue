@@ -102,8 +102,9 @@ export default {
       	box-shadow: 0 0 2px 1px rgba(64, 169, 255, 0.2);
 	  }
 	  &.disabled {
-      	cursor: not-allowed;
-		background: #f5f7fa;
+      cursor: not-allowed;
+			caret-color: transparent;
+			background: #f5f7fa;
 	  }
 	  &::-ms-reveal { display: none; }
     }

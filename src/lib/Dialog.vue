@@ -63,15 +63,14 @@ export default {
 </script>
 
 <style lang="scss">
-$radius: 4px;
 $border-color: #d9d9d9;
 
 .concise-dialog {
   background: #fff;
-  border-radius: $radius;
+  border-radius: 4px;
   box-shadow: 0 0 3px fade_out(black, 0.5);
-  min-width: 15em;
-  max-width: 90%;
+  min-width: 18em;
+  max-width: 98%;
 
   &-mask {
     position: fixed;

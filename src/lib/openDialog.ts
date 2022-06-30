@@ -2,7 +2,7 @@ import { createApp, h } from 'vue';
 import Dialog from '../lib/Dialog.vue';
 
 export const openDialog = (options: any) => {
-	const {title, content, OK, cancel} = options;
+	const { title, content, OK, cancel, closeOnClickMask } = options;
 	const div = document.createElement('div');
 	document.body.appendChild(div);
 	const app = createApp({
@@ -10,14 +10,15 @@ export const openDialog = (options: any) => {
 			return h(
 				Dialog,
 				{
-				visible: true,
-				'onUpdate:visible': (val: boolean) => {
-					if(val === false) {
-						close();
-					}
-				},
-				OK,
-				cancel
+					visible: true,
+					'onUpdate:visible': (val: boolean) => {
+						if(val === false) {
+							close();
+						}
+					},
+					OK,
+					cancel,
+					closeOnClickMask
 				},
 				{title, content},
 			);
