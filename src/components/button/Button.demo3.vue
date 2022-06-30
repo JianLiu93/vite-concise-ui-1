@@ -32,6 +32,6 @@ export default {
 
 <style lang="scss" scoped>
 	.concise-button {
-		margin: 0 10px;
+		margin: 4px 10px;
 	}
 </style>

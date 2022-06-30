@@ -7,6 +7,9 @@
     "build": "vite build",
     "preview": "vite preview"
   },
+  "resolutions": {
+    "node-sass": "npm:sass@1.26.11"
+  },
   "dependencies": {
     "github-markdown-css": "^5.1.0",
     "marked": "1.1.1",
@@ -20,6 +23,9 @@
     "@vue/compiler-sfc": "3.2.20",
     "esbuild": "0.14.42",
     "fast-glob": "^3.2.11",
+    "rollup-plugin-esbuild": "4.8.2",
+    "rollup-plugin-scss": "2.6.0",
+    "rollup-plugin-terser": "7.0.2",
     "sass": "1.26.10",
     "typescript": "^4.5.4",
     "vite": "^2.9.9",

@@ -21,6 +21,6 @@ git branch -M main
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
 # 部署到 https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:JianLiu93/orange-money-1.git main:gh-pages
+git push -f git@github.com:JianLiu93/concise-UI-vue3-homepage.git main:gh-pages
 
 cd -
