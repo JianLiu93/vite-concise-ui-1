@@ -8,6 +8,8 @@ import Markdown from 'vite-plugin-md'
 
 // https://vitejs.dev/config/
 export default {
+  base: './',
+  assetsDir: 'assets',
   plugins: [
     vue({
       include: [/\.vue$/, /\.md$/],

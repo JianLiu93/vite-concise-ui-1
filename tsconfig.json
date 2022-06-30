@@ -9,6 +9,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "strict": false,
+    "allowJs": true,
     "jsx": "preserve",
     "sourceMap": true,
     "resolveJsonModule": true,
@@ -18,5 +19,6 @@
     "skipLibCheck": true
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "exclude": ["src/components/**/*.demo.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

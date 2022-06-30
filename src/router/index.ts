@@ -40,4 +40,7 @@ export const router = createRouter({
 });
 router.afterEach(() => {
 	// console.log('路由切换...');
+	setTimeout(() => {
+		window.scrollTo(0, 0);
+	}, 0);
 })

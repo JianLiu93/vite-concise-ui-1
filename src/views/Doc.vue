@@ -28,13 +28,13 @@
 </template>
 
 <script lang="ts">
-import { inject, Ref } from 'vue';
+import { inject, onMounted, Ref } from 'vue';
 import Topnav from '@/components/Topnav.vue'
 
 export default {
 	components: { Topnav },
 	setup() {
-    	const menuVisible = inject<Ref<boolean>>('menuVisible');
+    const menuVisible = inject<Ref<boolean>>('menuVisible');
 		const h = document.documentElement.clientHeight;
 		return { menuVisible, h };
 	},
