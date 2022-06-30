@@ -8,6 +8,7 @@
 import { ref, onMounted } from 'vue';
 
 export default {
+  name: 'ConCol',
   // 接收父组件传递的参数
   props: {
     space: {

@@ -7,7 +7,7 @@
 <script lang="ts">
 // import { onMounted } from 'vue'
 export default {
-	name: 'tag',
+	name: 'ConTab',
 // 	props: {
 // 		disable: {
 // 			type: Boolean,

@@ -33,15 +33,15 @@ export default {
 
 		const defaults = context.slots.default!();
 		// console.log(defaults);
-		defaults.map(tag => {
-			if(tag.type !== Tab) {
+		defaults.map(tab => {
+			if(tab.type.name !== 'ConTab') {
 				throw new Error('Tabs 的子标签必须是 Tab!');
 			}
 		});
 		const current = computed(() => {
-			return defaults.find(tag => tag.props.title === props.selected);
+			return defaults.find(tab => tab.props.title === props.selected);
 		});
-		const titles = defaults.map(tag => tag.props.title);
+		const titles = defaults.map(tab => tab.props.title);
 		const select = (title: string) => {
 			if(props.disable.indexOf(title) >= 0) return;
 			context.emit('update:selected', title);

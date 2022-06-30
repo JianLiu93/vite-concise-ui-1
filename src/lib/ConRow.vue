@@ -25,13 +25,13 @@ export default {
 		const defaults = context.slots.default!();
 		let count = 0;
 		defaults.map(col => {
-			if(col.type !== ConCol) {
+			if(col.type.name !== 'ConCol') {
 				throw new Error('子标签必须是 con-col!');
 			} else {count++;}
 		});
 		const colSpace = ref(0);
 		colSpace.value = (space >0 && count > 1)? space * (count - 1): 0;
-		console.log(space, colSpace.value);
+		// console.log(space, colSpace.value);
 
 		onMounted(() => {
 				const style = row.value.style;

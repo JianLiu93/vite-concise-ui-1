@@ -4,7 +4,7 @@
 			<component :is="component" />
 		</div>
 		<div class="demo-action">
-			<Button @click="toggle">查看代码</Button>
+			<Button @click="toggle">{{codeIsShow? '收起代码':'查看代码'}}</Button>
 		</div>
 		<transition name="demo-code">
 		<div v-if="codeIsShow" class="demo-code">
@@ -40,7 +40,9 @@ export default {
       return Prism.highlight(props.code, Prism.languages.html, 'html');
 		});
 		const codeIsShow = ref(false);
-		const toggle = () => codeIsShow.value = !codeIsShow.value;
+		const toggle = () => {
+			codeIsShow.value = !codeIsShow.value;
+		}
 		return { html, codeIsShow, toggle	}
 	}
 

@@ -4,7 +4,7 @@
       <Topnav />
       <div class="banner">
         <h1>Concise UI</h1>
-        <h2>一个简洁的基于vue 的 UI框架</h2>
+        <h2>一款简洁美观的基于 vue 3 的 UI 框架</h2>
         <p class="actions">
           <a href="https://github.com/JianLiu93/vite-concise-ui-1" class="left">GitHub</a>
           <router-link to="/doc">开始使用</router-link>
