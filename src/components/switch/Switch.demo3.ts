@@ -9,7 +9,7 @@ const code: string = `
 
 <script lang="ts">
 import { ref } from 'vue';
-import Switch from '../../lib/Switch.vue';
+import { Switch } from 'concise-ui-vue3';
 
 export default {
 	components: { Switch },

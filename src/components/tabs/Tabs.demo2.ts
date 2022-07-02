@@ -10,8 +10,7 @@ const code: string = `
 </template>
 <script lang="ts">
 import { reactive, ref } from 'vue'
-import Tab from '../../lib/Tab.vue';
-import Tabs from '../../lib/Tabs.vue';
+import { Tab, Tabs } from 'concise-ui-vue3';
 
 export default {
 	components: { Tab, Tabs },
