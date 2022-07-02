@@ -77,8 +77,8 @@ export default {
 
 <style lang="scss" scoped>
   .concise-label {
-	position: relative;
-	width: 50%;
+		position: relative;
+		width: 80%;
     font-size: 14px;
     padding-left: 16px;
     display: flex;
@@ -88,8 +88,9 @@ export default {
       padding-right: 16px;
     }
     >input {
+			min-width: 80px;
       height: 40px;
-      flex-grow: 1;
+      flex: 1;
       border: 1px solid #ccc;
 	  border-radius: 4px;
       margin-right: 16px;
