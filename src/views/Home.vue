@@ -53,9 +53,12 @@ $color: #1571d6;
 .top-and-banner {
   background: linear-gradient(45deg, rgba(224,204,168, 1) 0%, rgba(30, 161, 189, 0.7) 70%, rgba(193, 229, 229, 1) 100%);
   clip-path: ellipse(80% 52% at 50% 40%);
+  h2 {
+    padding: 0 20px;
+  }
 }
 .features {
-  margin: 64px auto;
+  margin: 30px auto;
   width: 400px;
 
   @media (min-width: 800px) {
@@ -73,6 +76,7 @@ $color: #1571d6;
     >li {
       width: 400px;
       margin: 16px 0;
+      padding: 0 20px;
       display: grid;
       justify-content: start;
       align-content: space-between;

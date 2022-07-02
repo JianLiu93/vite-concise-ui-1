@@ -43,7 +43,7 @@ $color: #007974;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   z-index: 30;
   justify-content: center;
   align-items: center;
